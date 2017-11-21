@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 import BookList from './BookList';
 
-class Search extends React.Component {
+class SearchPage extends React.Component {
 
   state = {
     books: []
   };
 
+  // is there any ES6 ways could be here to hanele the 2 'forEach' in a easier and clearer way ?
   handleSearch = (e) => {
     let query = e.target.value;
     if (query) {
@@ -17,15 +18,19 @@ class Search extends React.Component {
         if (books && !books.error) {
           // set book to its shelf if exist
           books.forEach((book) => {
-            this.props.books.forEach( (b) => {
-              if (b.id === book.id){
+            this.props.books.forEach((b) => {
+              if (b.id === book.id) {
                 book['shelf'] = b.shelf;
               }
             });
           });
           this.setState({ books });
+        } else {
+          this.setState({ books: [] });
         }
       });
+    } else {
+      this.setState({ books: [] });
     }
   }
 
@@ -46,4 +51,4 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default SearchPage;

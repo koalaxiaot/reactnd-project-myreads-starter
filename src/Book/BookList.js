@@ -4,12 +4,12 @@ import Book from './Book';
 
 class BookList extends React.Component {
   render() {
-    const {books, onChange} = this.props;
+    const { books, onChange } = this.props;
     return (
       <ol className="books-grid">
-        {books.map(book => (
+        {books.filter(book => book.authors && book.imageLinks).map(book => (
           <li key={book.id}>
-            <Book book={book} onChange={onChange}/>
+            <Book book={book} onChange={onChange} />
           </li>
         ))}
       </ol>

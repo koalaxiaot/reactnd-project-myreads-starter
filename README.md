@@ -1,3 +1,32 @@
+# Extra Features
+
+1. `/detail/:id` page
+
+    > reuse `Book` component
+
+2. `Loading` component
+
+    > only used in detail page
+
+# File structure
+```
+src/Book
+├── Book.js        # Book component, show one book cover and change shelf. Minimum item.
+├── BookList.js    # BookList component, used in BookShelf and SearchPage
+├── BookShelf.js   # BookShelf component, used in App
+├── DetailPage.js  # /detail route page
+├── Loading.js     # Loading component used in detail page
+└── SearchPage.js  # /search route page
+App.js
+```
+
+```
+       |--- BookShelf ( / )       --- BookList --- Book
+App ---|--- SearchPage ( /search ) --- BookList --- Book
+       |--- Detailpage ( /detail ) --- Book
+                                   --- Loading
+```
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
