@@ -6,8 +6,6 @@
 
 2. `Loading` component
 
-    > only used in detail page
-
 # File structure
 ```
 src/Book
@@ -15,13 +13,13 @@ src/Book
 ├── BookList.js    # BookList component, used in BookShelf and SearchPage
 ├── BookShelf.js   # BookShelf component, used in App
 ├── DetailPage.js  # /detail route page
-├── Loading.js     # Loading component used in detail page
+├── Loading.js     # Loading component used in detail page and main page
 └── SearchPage.js  # /search route page
 App.js
 ```
 
 ```
-       |--- BookShelf ( / )       --- BookList --- Book
+       |--- BookShelf ( / )        --- BookList --- Book
 App ---|--- SearchPage ( /search ) --- BookList --- Book
        |--- Detailpage ( /detail ) --- Book
                                    --- Loading

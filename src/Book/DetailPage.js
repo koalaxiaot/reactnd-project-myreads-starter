@@ -43,16 +43,14 @@ class DetailPage extends React.Component {
                 <dl>
                   <dt>Authors</dt>
                   <dd>{book.authors.join(', ')}</dd>
-                  <dt>Categories</dt>
-                  <dd>{book.categories.join(', ')}</dd>
                   <dt>Publisher</dt>
-                  <dd>{book.publisher}, {book.publishedDate}</dd>
+                  <dd>{book.publisher} @ {book.publishedDate}</dd>
                   <dt>Content Version</dt>
                   <dd>{book.contentVersion}</dd>
                   <dt>Pages</dt>
                   <dd>{book.pageCount}</dd>
                   <dt className="mb20">ISBN</dt>
-                  <dd className="mb20">{book.industryIdentifiers.map(i => i.identifier).join(', ')}</dd>
+                  <dd className="mb20">{book.industryIdentifiers && book.industryIdentifiers.map(i => i.identifier).join(', ')}</dd>
                   <dt>Description</dt>
                   <dd>{book.description}</dd>
                 </dl>
