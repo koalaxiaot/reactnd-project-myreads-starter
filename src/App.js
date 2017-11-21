@@ -47,7 +47,11 @@ class BooksApp extends React.Component {
             <div className="app">
 
               <Route path="/search" render={() => (
-                <SearchPage onChange={this.handleChange} onSearch={this.handleSearch} books={this.state.books} />
+                <SearchPage onChange={this.handleChange} books={this.state.books} />
+              )} />
+
+              <Route path="/detail" render={({ location }) => (
+                <DetailPage onChange={this.handleChange} location={location} />
               )} />
 
               <Route exact path="/" render={() => (
@@ -64,13 +68,6 @@ class BooksApp extends React.Component {
                     <Link to="/search">Add a book</Link>
                   </div>
                 </div>
-              )} />
-
-              <Route path="/detail" render={({ location }) => (
-                <DetailPage
-                  onChange={this.handleChange}
-                  location={location}
-                />
               )} />
 
             </div>

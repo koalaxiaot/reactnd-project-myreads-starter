@@ -13,20 +13,16 @@ class DetailPage extends React.Component {
   };
 
   componentDidMount() {
-
     const { bookid } = QueryString.parse(this.props.location.search);
     if (bookid) {
       BooksAPI.get(bookid).then(book => {
         this.setState({ book, isLoading: false });
       });
     }
-
   }
 
   render() {
-
     const { book, isLoading } = this.state;
-
     return (
       <div>
         {
@@ -48,7 +44,7 @@ class DetailPage extends React.Component {
                   <dt>Content Version</dt>
                   <dd>{book.contentVersion}</dd>
                   <dt>Pages</dt>
-                  <dd>{book.pageCount}</dd>
+                  <dd>{book.pageCount || '0'}</dd>
                   <dt className="mb20">ISBN</dt>
                   <dd className="mb20">{book.industryIdentifiers && book.industryIdentifiers.map(i => i.identifier).join(', ')}</dd>
                   <dt>Description</dt>

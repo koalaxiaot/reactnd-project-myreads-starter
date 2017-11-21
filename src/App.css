@@ -222,6 +222,7 @@ body, .app {
 
 .book-detail-info dl {
   float: left;
+  width: 50%;
   margin-right: 30px;
 }
 
@@ -234,7 +235,6 @@ body, .app {
 
 .book-detail-info dl dd {
   margin-left: 230px;
-  max-width: 400px;
 }
 
 /** helpers */

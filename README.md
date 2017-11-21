@@ -1,6 +1,6 @@
 # Extra Features
 
-1. `/detail/:id` page
+1. `/detail` page
 
     > reuse `Book` component
 
