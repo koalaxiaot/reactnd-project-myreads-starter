@@ -6,7 +6,7 @@
 
 2. `Loading` component
 
-# File structure
+# File structure ( Book part )
 ```
 src/Book
 ├── Book.js        # Book component, show one book cover and change shelf. Minimum item.
@@ -15,7 +15,6 @@ src/Book
 ├── DetailPage.js  # /detail route page
 ├── Loading.js     # Loading component used in detail page and main page
 └── SearchPage.js  # /search route page
-App.js
 ```
 
 ```
