@@ -31,7 +31,7 @@ class DetailPage extends React.Component {
             :
             <div className="book-detail">
               <div className="book-detail-bar" >
-                <Link className="close-detail" to="/">Close</Link>
+                <Link className="close-button" to="/">Close</Link>
                 <h2>{book.title}</h2>
                 <small>{book.subtitle}</small>
               </div >

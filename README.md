@@ -13,7 +13,7 @@ src/Book
 ├── BookList.js    # BookList component, used in BookShelf and SearchPage
 ├── BookShelf.js   # BookShelf component, used in App
 ├── DetailPage.js  # /detail route page
-├── Loading.js     # Loading component used in detail page and main page
+├── Loading.js     # Loading component
 └── SearchPage.js  # /search route page
 ```
 

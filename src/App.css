@@ -85,18 +85,22 @@ body, .app {
   outline: none;
 }
 
-.close-search {
+.close-button {
   display: block;
   top: 20px;
   left: 15px;
   width: 50px;
-  height: 53px;
+  height: 54px;
   background: white;
   background-image: url('./icons/arrow-back.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 28px;
   font-size: 0;
+}
+
+.close-button:hover{
+  background-color: #efefef;
 }
 
 .search-books-results {
@@ -196,20 +200,6 @@ body, .app {
 .book-detail-bar small{
   padding: 19px 0 0 15px;
   color: #777;
-}
-
-.close-detail {
-  display: block;
-  top: 20px;
-  left: 15px;
-  width: 50px;
-  height: 53px;
-  background: white;
-  background-image: url('./icons/arrow-back.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 28px;
-  font-size: 0;
 }
 
 .book-detail-info {
