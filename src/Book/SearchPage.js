@@ -29,6 +29,7 @@ class SearchPage extends React.Component {
         .then((books) => {
           if (books && !books.error) {
             // set book to its shelf if exist
+            // i want to change the code below to declarative, but i don't know how.
             books.forEach((book) => {
               this.props.books.forEach((b) => {
                 if (b.id === book.id) {

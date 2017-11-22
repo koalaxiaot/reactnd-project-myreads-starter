@@ -9,7 +9,8 @@ class DetailPage extends React.Component {
 
   state = {
     book: {},
-    isLoading: true
+    isLoading: true,
+    isError: false
   };
 
   componentDidMount() {
@@ -17,12 +18,18 @@ class DetailPage extends React.Component {
     if (bookid) {
       BooksAPI.get(bookid).then(book => {
         this.setState({ book, isLoading: false });
+      }).catch(() => {
+        // book is not exist
+        this.setState({ isError: true, isLoading: false, book: { title: 'The book is not exist.' } });
       });
+      // bookid is undefined
+    } else {
+      this.setState({ isError: true, isLoading: false, book: { title: 'The book is not exist.' } });
     }
   }
 
   render() {
-    const { book, isLoading } = this.state;
+    const { book, isLoading, isError } = this.state;
     return (
       <div>
         {
@@ -35,25 +42,29 @@ class DetailPage extends React.Component {
                 <h2>{book.title}</h2>
                 <small>{book.subtitle}</small>
               </div >
-              <div className="book-detail-info">
-                <dl>
-                  <dt>Authors</dt>
-                  <dd>{book.authors.join(', ')}</dd>
-                  <dt>Publisher</dt>
-                  <dd>{book.publisher} @ {book.publishedDate}</dd>
-                  <dt>Content Version</dt>
-                  <dd>{book.contentVersion}</dd>
-                  <dt>Pages</dt>
-                  <dd>{book.pageCount || '0'}</dd>
-                  <dt className="mb20">ISBN</dt>
-                  <dd className="mb20">{book.industryIdentifiers && book.industryIdentifiers.map(i => i.identifier).join(', ')}</dd>
-                  <dt>Description</dt>
-                  <dd>{book.description}</dd>
-                </dl>
-                <div className="book">
-                  <Book book={book} onChange={this.props.onChange} showInfo={false} />
+
+              {isError ||
+                <div className="book-detail-info">
+                  <dl>
+                    <dt>Authors</dt>
+                    <dd>{book.authors.join(', ')}</dd>
+                    <dt>Publisher</dt>
+                    <dd>{book.publisher} @ {book.publishedDate}</dd>
+                    <dt>Content Version</dt>
+                    <dd>{book.contentVersion}</dd>
+                    <dt>Pages</dt>
+                    <dd>{book.pageCount || '0'}</dd>
+                    <dt className="mb20">ISBN</dt>
+                    <dd className="mb20">{book.industryIdentifiers && book.industryIdentifiers.map(i => i.identifier).join(', ')}</dd>
+                    <dt>Description</dt>
+                    <dd>{book.description}</dd>
+                  </dl>
+                  <div className="book">
+                    <Book book={book} onChange={this.props.onChange} showInfo={false} />
+                  </div>
                 </div>
-              </div>
+              }
+
             </div >
         }
       </div>
