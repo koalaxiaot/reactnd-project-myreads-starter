@@ -14,6 +14,12 @@ class BooksApp extends React.Component {
     isLoading: true
   };
 
+  BOOK_SHELVES = [
+    { id: "currentlyReading", name: "Currently Reading" },
+    { id: "wantToRead", name: "Want to Read" },
+    { id: "read", name: "Read" },
+  ];
+
   // filter books by shelf
   booksFilter = shelf => this.state.books.filter(book => book.shelf === shelf)
 
@@ -60,9 +66,13 @@ class BooksApp extends React.Component {
                     <h1>MyReads</h1>
                   </div>
                   <div className="list-books-content">
-                    <BookShelf shelfname="Currently Reading" books={this.booksFilter('currentlyReading')} onChange={this.handleChange} />
-                    <BookShelf shelfname="Want to Read" books={this.booksFilter('wantToRead')} onChange={this.handleChange} />
-                    <BookShelf shelfname="Read" books={this.booksFilter('read')} onChange={this.handleChange} />
+                    {this.BOOK_SHELVES.map(shelf =>
+                      <BookShelf
+                        key={shelf.id}
+                        shelfname={shelf.name}
+                        books={this.booksFilter(shelf.id)}
+                        onChange={this.handleChange} />
+                    )}
                   </div>
                   <div className="open-search">
                     <Link to="/search">Add a book</Link>

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// reference: http://tobiasahlin.com/spinkit/
 const Loading = () => {
   return (
     <div className="loading-container">
